@@ -17,7 +17,7 @@ class LauteringAutomation(KettleController):
     def run(self):
         self.sleep(1)
         while self.is_running():
-            self.currentFillLevel = float(self.get_sensor_value(1))
+            self.currentFillLevel = self.get_temp()
             if bool(self.pumping):
                 if self.currentFillLevel >= float(self.maxSensorDistance):
                     self.heater_off()
